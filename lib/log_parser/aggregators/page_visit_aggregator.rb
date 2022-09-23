@@ -8,7 +8,11 @@ module LogParser
       end
 
       def ordered_by_page_views
-        @ordered_by_page_view ||= aggregate_pages.sort_by { |page| [-page.visit_count, page.path] }
+        @ordered_by_page_views ||= aggregate_pages.sort_by { |page| [-page.visit_count, page.path] }
+      end
+
+      def ordered_by_unique_page_views
+        @ordered_by_unique_page_views ||= aggregate_pages.sort_by { |page| [-page.unique_visit_count, page.path] }
       end
 
       private
