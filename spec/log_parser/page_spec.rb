@@ -12,6 +12,26 @@ describe LogParser::Page do
     ]
   end
 
+  describe '#==' do
+    subject { super().== other }
+
+    context 'when other page path is different' do
+      let(:other) { described_class.new(path: '/other-site', visit_logs: []) }
+
+      it 'returns false' do
+        expect(subject).to eq false
+      end
+    end
+
+    context 'when other page path is the same' do
+      let(:other) { described_class.new(path: path, visit_logs: []) }
+
+      it 'returns true' do
+        expect(subject).to eq true
+      end
+    end
+  end
+
   describe '#unique_visit_count' do
     subject { super().unique_visit_count }
 
