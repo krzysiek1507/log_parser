@@ -8,5 +8,9 @@ module LogParser
       @path = path
       @visit_logs = visit_logs
     end
+
+    def visit_count
+      visit_logs.length
+    end
   end
 end
