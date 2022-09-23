@@ -9,6 +9,10 @@ module LogParser
       @visit_logs = visit_logs
     end
 
+    def unique_visit_count
+      @unique_visit_count ||= visit_logs.uniq(&:ip_address).length
+    end
+
     def visit_count
       visit_logs.length
     end

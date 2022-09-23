@@ -12,6 +12,14 @@ describe LogParser::Page do
     ]
   end
 
+  describe '#unique_visit_count' do
+    subject { super().unique_visit_count }
+
+    it 'returns the number of visit counts' do
+      expect(subject).to eq 2
+    end
+  end
+
   describe '#visit_count' do
     subject { super().visit_count }
 
